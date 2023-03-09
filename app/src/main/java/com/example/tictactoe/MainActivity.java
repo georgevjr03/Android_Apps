@@ -62,6 +62,21 @@ public class MainActivity extends AppCompatActivity {
                 status.setText(winnerStr);
             }
         }
+        boolean emptySquare = false;
+        for (int squareState : gameState) {
+            if (squareState == 2) {
+                emptySquare = true;
+                break;
+            }
+        }
+        if (!emptySquare && gameActive) {
+            // Game is a draw
+            gameActive = false;
+            String winnerStr;
+            winnerStr = "No one won!!";
+            TextView status = findViewById(R.id.status);
+            status.setText(winnerStr);
+        }
 
 
 
